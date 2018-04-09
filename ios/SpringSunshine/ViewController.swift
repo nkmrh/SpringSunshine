@@ -82,6 +82,9 @@ extension ViewController: UICollectionViewDataSource {
 //        cell.layer.backgroundColor = UIColor.white.cgColor
         cell.layer.opacity = 0.2
         cell.layer.cornerRadius = size / 2
+//        cell.layer.borderColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 0.8).cgColor
+//        cell.layer.borderWidth = 0.5
+//        cell.layer.shouldRasterize = true
 
         var transform = cell.layer.transform
         transform = CATransform3DScale(transform, 1, 1, 0)
@@ -90,9 +93,8 @@ extension ViewController: UICollectionViewDataSource {
 
         UIView.animate(withDuration: (Double(indexPath.row  % 5) + 1) * 7,
                        delay: Double(indexPath.row  % 7),
-                       options: [
-                        .autoreverse, .repeat, .curveEaseInOut
-            ], animations: {
+                       options: [.curveEaseInOut],
+                       animations: {
                 cell.layer.transform = CATransform3DMakeScale(3, 3, 0)
         }, completion: nil)
 
